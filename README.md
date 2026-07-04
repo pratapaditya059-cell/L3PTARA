@@ -1,6 +1,6 @@
-# CodeRealm 🌍
+# L3PTARA 🌍
 
-CodeRealm is an experimental 3D world for exploring Data Structures and Algorithms in a more visual and interactive way.
+L3PTARA is an experimental 3D world for exploring Data Structures and Algorithms in a more visual and interactive way.
 
 The project is currently in its early stages. The initial goal is to build a browser-based 3D world where different DSA topics can eventually be represented as unique regions, with coding problems arranged as interactive nodes.
 
