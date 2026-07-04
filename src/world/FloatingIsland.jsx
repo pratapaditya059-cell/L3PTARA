@@ -1,17 +1,13 @@
-function FloatingIsland() {
-  return (
-    <group>
-      <mesh position={[0, 0, 0]}>
-        <cylinderGeometry args={[3, 2, 0.8, 5]} />
-        <meshStandardMaterial color="green" flatshading/>
-      </mesh>
+import { useGLTF } from "@react-three/drei";
 
-      <mesh position={[0, -1.4, 0]}>
-        <coneGeometry args={[2.5, 2, 32]} />
-        <meshStandardMaterial color="brown" flatshading/>
-      </mesh>
-    </group>
-  );
+function FloatingIsland() {
+  const model = useGLTF("/models/floating-island.glb");
+
+  return <primitive object={model.scene} 
+  scale={2}
+  position={[0,0,0]}
+  rotation={[0,0,0]}
+  />;
 }
 
 export default FloatingIsland;
