@@ -1,23 +1,20 @@
 import FloatingIsland from "./FloatingIsland";
-import Tree from "./Tree";
+import TreeRealm from "./TreeRealm";
+import ArraysRealm from "./ArraysRealm"
+import Mountain from "./Mountain";
+import GraphRealm from "./GraphRealm";
 
 function World() {
   return (
     <>
-      <FloatingIsland />
-
-      <Tree position={[0, 1.45, 0]} />
-
-      <Tree
-        position={[0, 1.45, 0.3]}
-        scale={0.003}
-      />
-
-      <Tree
-        position={[0, 1.45, -0.3]}
-        scale={0.0025}
-        rotation={[0, Math.PI / 3, 0]}
-      />
+      <FloatingIsland/>
+      <TreeRealm/>
+      <ArraysRealm/>
+      <Mountain
+      position={[-0.2, 1.9, -3]}
+    scale={2.3}
+    />
+    <GraphRealm/>
     </>
   );
 }

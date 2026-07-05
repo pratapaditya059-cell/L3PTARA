@@ -2,12 +2,12 @@ import { useMemo } from "react";
 import { useGLTF } from "@react-three/drei";
 import { clone } from "three/examples/jsm/utils/SkeletonUtils.js";
 
-function Tree({
+function Mountain({
   position,
-  scale = 0.003,
+  scale = 2,
   rotation = [0, 0, 0],
 }) {
-  const model = useGLTF("/models/maple_tree.glb");
+  const model = useGLTF("/models/mountain.glb");
 
   const clonedScene = useMemo(
     () => clone(model.scene),
@@ -24,4 +24,4 @@ function Tree({
   );
 }
 
-export default Tree;
+export default Mountain;
