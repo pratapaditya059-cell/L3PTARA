@@ -8,7 +8,7 @@ Instead of navigating DSA topics through traditional menus and lists, users expl
 
 ## 🌐 Live Demo
 
-🚀 [Explore L3PTARA](YOUR_VERCEL_URL)
+🚀 [Explore L3PTARA](https://l3-ptara.vercel.app/)
 
 ## 🏝️ Realms
 
@@ -47,7 +47,7 @@ Hover over a realm to discover it, then click to explore relevant coding problem
 Clone the repository:
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/pratapaditya059-cell/L3PTARA
 cd L3PTARA
 ```
 
