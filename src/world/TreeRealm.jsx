@@ -1,10 +1,28 @@
-
+import { useState } from "react";
 import Tree from "./Tree";
+import { Text, Billboard } from "@react-three/drei";
 
 function TreeRealm() {
+  const [hovered, setHovered] = useState(false);
   return (
-    <>
-
+    <group
+    onPointerEnter={() => {
+        console.log("Entered tree realm");
+        setHovered(true);
+        document.body.style.cursor = "pointer";
+      }}
+      onPointerLeave={() => {
+        setHovered(false);
+        document.body.style.cursor = "default";
+      }}
+      onClick={() => {
+    window.open(
+      "https://leetcode.com/problem-list/tree/",
+      "_blank"
+    );
+  }}
+    >
+      
       <Tree position={[-3, 1.45, 0]} />
 
       <Tree
@@ -59,7 +77,22 @@ function TreeRealm() {
         scale={0.0035}
         rotation={[0, Math.PI / 3, 0]}
       />
-    </>
+
+{hovered && (
+  <Billboard position={[-2.7, 3, 0.3]}>
+    <Text
+      fontSize={0.2}
+      color="white"
+      anchorX="center"
+      anchorY="middle"
+    >
+      Trees Realm
+    </Text>
+  </Billboard>
+)}
+
+    </group>
+      
   );
 }
 

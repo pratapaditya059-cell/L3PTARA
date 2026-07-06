@@ -1,6 +1,9 @@
+import { useState } from "react";
+import { Text, Billboard } from "@react-three/drei";
 import House from "./House";
 
 function ArraysRealm() {
+  const [hovered, setHovered] = useState(false);
   const houses = [
     { position: [3, 1.5, -1] },
     { position: [3, 1.5, -0.5] },
@@ -14,8 +17,23 @@ function ArraysRealm() {
     { position: [2.3, 1.5, 1] },
   ];
 
-  return (
-    <>
+   return (
+    <group
+      onPointerEnter={() => {
+        setHovered(true);
+        document.body.style.cursor = "pointer";
+      }}
+      onPointerLeave={() => {
+        setHovered(false);
+        document.body.style.cursor = "default";
+      }}
+      onClick={() => {
+        window.open(
+          "https://leetcode.com/problem-list/array/",
+          "_blank"
+        );
+      }}
+    >
       {houses.map((house, index) => (
         <House
           key={index}
@@ -23,7 +41,15 @@ function ArraysRealm() {
           scale={1.5}
         />
       ))}
-    </>
+
+      {hovered && (
+        <Billboard position={[2.6, 3, 0]}>
+          <Text fontSize={0.2} color="white">
+            Arrays Realm
+          </Text>
+        </Billboard>
+      )}
+    </group>
   );
 }
 

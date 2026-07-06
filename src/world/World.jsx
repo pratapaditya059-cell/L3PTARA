@@ -3,6 +3,7 @@ import TreeRealm from "./TreeRealm";
 import ArraysRealm from "./ArraysRealm"
 import Mountain from "./Mountain";
 import GraphRealm from "./GraphRealm";
+import DPRealm from "./DPRealm";
 
 function World() {
   return (
@@ -10,10 +11,7 @@ function World() {
       <FloatingIsland/>
       <TreeRealm/>
       <ArraysRealm/>
-      <Mountain
-      position={[-0.2, 1.9, -3]}
-    scale={2.3}
-    />
+      <DPRealm/>
     <GraphRealm/>
     </>
   );

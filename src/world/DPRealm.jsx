@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Text, Billboard } from "@react-three/drei";
-import Pole from "./Pole";
+import Mountain from "./Mountain";
 
-function GraphRealm() {
+function DPRealm() {
   const [hovered, setHovered] = useState(false);
+
   return (
     <group
       onPointerEnter={() => {
@@ -16,39 +17,25 @@ function GraphRealm() {
       }}
       onClick={() => {
         window.open(
-          "https://leetcode.com/problem-list/graph/",
+          "https://leetcode.com/problem-list/dynamic-programming/",
           "_blank"
         );
       }}
     >
-    
-    <Pole
-      position={[0.2, 1.5, +3.78]}
-    scale={0.1}
-    />
-    <Pole
-      position={[0.2, 1.5, 2.8]}
-      rotation={[0,Math.PI/2,0]}
-    scale={0.1}
-    />
-    <Pole
-      position={[0.2, 1.5, 2.8]}
-      rotation={[0,-Math.PI/2,0]}
-    scale={0.1}
-    />
-    <Pole
-      position={[0.2, 1.5, 2.8]}
-    scale={0.1}
-    />
-     {hovered && (
-        <Billboard position={[0.2, 3, 3.2]}>
+      <Mountain
+        position={[-0.2, 1.9, -3]}
+        scale={2.3}
+      />
+
+      {hovered && (
+        <Billboard position={[-0.2, 3.5, -3]}>
           <Text
-            fontSize={0.2}
+            fontSize={0.3}
             color="white"
             anchorX="center"
             anchorY="middle"
           >
-            Graphs Realm
+            DP Realm
           </Text>
         </Billboard>
       )}
@@ -56,4 +43,4 @@ function GraphRealm() {
   );
 }
 
-export default GraphRealm;
+export default DPRealm;
