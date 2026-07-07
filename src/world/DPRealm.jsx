@@ -39,6 +39,21 @@ function DPRealm() {
           </Text>
         </Billboard>
       )}
+      {hovered && (
+  <mesh
+    position={[-0.2, 1.5, -3]}
+    rotation={[-Math.PI / 2, 0, 0]}
+    raycast={() => null}
+  >
+    <ringGeometry args={[1, 1.2, 64]} />
+    <meshBasicMaterial
+      color="purple"
+      transparent
+      opacity={1}
+      side={2}
+    />
+  </mesh>
+)}
     </group>
   );
 }

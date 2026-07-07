@@ -52,6 +52,21 @@ function GraphRealm() {
           </Text>
         </Billboard>
       )}
+      {hovered && (
+  <mesh
+    position={[0.2, 1.55, 3]}
+    rotation={[-Math.PI / 2, 0, 0]}
+    raycast={() => null}
+  >
+    <ringGeometry args={[0.8, 1.0, 64]} />
+    <meshBasicMaterial
+      color="cyan"
+      transparent
+      opacity={1}
+      side={2}
+    />
+  </mesh>
+)}
     </group>
   );
 }

@@ -91,7 +91,23 @@ function TreeRealm() {
   </Billboard>
 )}
 
+{hovered && (
+  <mesh
+    position={[-2.7, 1.5, 0.3]}
+    rotation={[-Math.PI / 2, 0, 0]}
+    raycast={() => null}
+  >
+    <ringGeometry args={[0.8, 1.0, 64]} />
+    <meshBasicMaterial
+      color="lime"
+      transparent
+      opacity={1}
+      side={2}
+    />
+  </mesh>
+)}
     </group>
+    
       
   );
 }
