@@ -20,7 +20,7 @@ function App() {
   <ambientLight intensity={0.4} />
 
   <directionalLight
-    position={[5, 10, 5]}
+    position={[-7, 5, -3]}
     intensity={1}
     color="#b8c7ff"
   />

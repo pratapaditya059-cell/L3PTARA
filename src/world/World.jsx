@@ -4,6 +4,7 @@ import ArraysRealm from "./ArraysRealm"
 import Mountain from "./Mountain";
 import GraphRealm from "./GraphRealm";
 import DPRealm from "./DPRealm";
+import Moon from "./Moon";
 
 function World() {
   return (
@@ -13,6 +14,9 @@ function World() {
       <ArraysRealm/>
       <DPRealm/>
     <GraphRealm/>
+    <Moon>
+      position=
+    </Moon>
     </>
   );
 }
