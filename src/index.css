@@ -10,3 +10,110 @@ body,
   width: 100%;
   height: 100%;
 }
+
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(3, 3, 15, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.intro-content {
+  text-align: center;
+  color: white;
+}
+
+.intro-content h1 {
+  font-size: 4rem;
+  letter-spacing: 0.4rem;
+  margin: 0;
+  opacity: 0;
+  animation: introFadeUp 1.2s ease forward;
+}
+
+.intro-tagline {
+  font-size: 1.3rem;
+  opacity: 0;
+  animation: introFadeUp 1s ease 0.5s forwards;
+}
+
+.intro-realms {
+  margin: 1.5rem 0;
+  opacity: 0;
+  animation: introFadeUp 1s ease 0.7s forwards;
+}
+
+.intro-content button {
+  padding: 0.8rem 1.8rem;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0;
+  animation: introFadeUp 1s ease 0.9s forwards;
+}
+
+.intro-content button:hover {
+  background: white;
+  color: black;
+}
+@keyframes introFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.world-hint {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+
+  background: rgba(5, 5, 16, 0.65);
+  backdrop-filter: blur(8px);
+
+  color: white;
+  font-size: 0.9rem;
+  letter-spacing: 0.04rem;
+
+  animation: hintFade 8s forwards;
+  pointer-events: none;
+}
+
+@keyframes hintFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+
+  15% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

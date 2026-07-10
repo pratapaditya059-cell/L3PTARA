@@ -1,9 +1,21 @@
 import { Canvas } from "@react-three/fiber";
 import World from "./world/World";
 import { OrbitControls, Stars } from "@react-three/drei";
+import { useState } from "react";
+import IntroOverlay from "./components/IntroOverlay";
+import WorldHint from "./components/WorldHint";
 
 function App() {
+  const [showIntro, setShowIntro] = useState(true);
+
   return (
+    <>
+    {showIntro && (
+        <IntroOverlay
+          onEnter={() => setShowIntro(false)}
+        />
+      )}
+      {!showIntro && <WorldHint />}
     <Canvas camera={{ position: [6, 5, 6] }}>
   <color attach="background" args={["#050510"]} />
 
@@ -29,6 +41,7 @@ function App() {
 
   <OrbitControls />
 </Canvas>
+</>
   );
 }
 
