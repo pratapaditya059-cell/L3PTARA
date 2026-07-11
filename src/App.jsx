@@ -4,6 +4,7 @@ import { OrbitControls, Stars } from "@react-three/drei";
 import { useState } from "react";
 import IntroOverlay from "./components/IntroOverlay";
 import WorldHint from "./components/WorldHint";
+import Moon from "./world/Moon"; 
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -38,7 +39,7 @@ function App() {
   />
 
   <World />
-
+  <Moon/>
   <OrbitControls />
 </Canvas>
 </>
