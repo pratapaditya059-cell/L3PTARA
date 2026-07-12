@@ -1,35 +1,32 @@
 # 🌍 L3PTARA
 
-**L3PTARA** is an interactive 3D world for exploring **Data Structures and Algorithms** through visually distinct realms.
+> **Explore Data Structures & Algorithms through an interactive 3D world.**
 
-Instead of navigating DSA topics through traditional menus and lists, users explore a floating island where each region represents a core DSA domain.
-
-> Explore the world. Discover a realm. Solve problems.
+L3PTARA reimagines DSA learning by replacing traditional lists with an immersive 3D floating island. Each realm represents a core DSA topic, allowing users to explore concepts visually before jumping into relevant coding problems.
 
 ## 🌐 Live Demo
 
-🚀 [Explore L3PTARA](https://l3-ptara.vercel.app/)
+🔗 https://l3-ptara.vercel.app/
 
-## 🏝️ Realms
-
-- 🌲 **Trees Realm** — represented by a dense forest
-- 🏘️ **Arrays Realm** — represented by an ordered settlement
-- ⚡ **Graphs Realm** — represented by an interconnected network
-- 🏔️ **Dynamic Programming Realm** — represented by mountain peaks
-
-Hover over a realm to discover it, then click to explore relevant coding problems.
+---
 
 ## ✨ Features
 
-- Interactive 3D floating island
-- Four visually distinct DSA realms
-- Orbit-based world exploration
-- Hover-based realm discovery
-- Floating realm labels
-- Clickable 3D regions
-- Direct navigation to relevant LeetCode problem collections
-- Reusable GLB model components
-- Fully browser-based experience
+- 🌍 Interactive 3D floating island
+- 🌌 Animated night sky with stars and orbiting moon
+- 🌊 Floating world animation
+- 🌲 Four unique DSA realms:
+  - Trees
+  - Arrays
+  - Graphs
+  - Dynamic Programming
+- 🖱️ Hover labels and visual highlights
+- 🚪 Animated introduction screen
+- 📖 In-world interaction guide
+- 🔗 Direct navigation to relevant LeetCode problem collections
+- 🎮 Smooth orbit controls for exploring the world
+
+---
 
 ## 🛠️ Tech Stack
 
@@ -39,8 +36,8 @@ Hover over a realm to discover it, then click to explore relevant coding problem
 - React Three Fiber
 - Drei
 - JavaScript
-- GLB / glTF 3D assets
-- Vercel
+
+---
 
 ## 🚀 Getting Started
 
@@ -57,13 +54,13 @@ Install dependencies:
 npm install
 ```
 
-Start the development server:
+Run the development server:
 
 ```bash
 npm run dev
 ```
 
-Create a production build:
+Build for production:
 
 ```bash
 npm run build
@@ -75,14 +72,54 @@ Preview the production build:
 npm run preview
 ```
 
+---
+
+## 🎯 Current Realms
+
+🌲 **Trees Realm**
+
+Explore tree-based DSA problems.
+
+🏘️ **Arrays Realm**
+
+Practice array and traversal problems.
+
+⚡ **Graphs Realm**
+
+Navigate graph algorithms and traversals.
+
+🏔️ **Dynamic Programming Realm**
+
+Solve state-based optimization problems.
+
+---
+
 ## 💡 Vision
 
-L3PTARA explores a simple idea:
+L3PTARA aims to make learning DSA more engaging by combining interactive 3D environments with problem-solving.
 
-> **What if practicing DSA felt more like exploring a world than navigating a list of problems?**
+Instead of navigating endless lists, users discover topics naturally by exploring different regions of a virtual world.
 
-The project is currently an early prototype focused on combining interactive 3D environments with coding problem discovery.
+Future versions will include:
 
-## 📄 Asset Attribution
+- Player movement
+- Quest-based progression
+- Curated learning paths
+- Progress tracking
+- Additional DSA realms
+- Animations and environmental effects
 
-Third-party 3D assets used in this project remain subject to their respective licenses and terms of use.
+---
+
+## 📸 Preview
+
+![L3PTARA](./Screenshots/intro.png)
+![](./Screenshots/home.png)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+Third-party 3D assets are used under their respective licenses.
