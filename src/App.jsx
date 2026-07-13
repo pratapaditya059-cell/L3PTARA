@@ -5,10 +5,13 @@ import { useState } from "react";
 import IntroOverlay from "./components/IntroOverlay";
 import WorldHint from "./components/WorldHint";
 import Moon from "./world/Moon"; 
+import RealmPanel from "./components/RealmPanel";
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
-
+  const [selectedRealm, setSelectedRealm] = useState(null);
+  console.log(selectedRealm);
+  
   return (
     <>
     {showIntro && (
@@ -17,6 +20,12 @@ function App() {
         />
       )}
       {!showIntro && <WorldHint />}
+
+      <RealmPanel
+  realm={selectedRealm}
+  onClose={() => setSelectedRealm(null)}
+/>
+
     <Canvas camera={{ position: [6, 5, 6] }}>
   <color attach="background" args={["#050510"]} />
 
@@ -38,10 +47,13 @@ function App() {
     color="#b8c7ff"
   />
 
-  <World />
+  <World 
+  onRealmClick={setSelectedRealm}
+  />
   <Moon/>
   <OrbitControls />
 </Canvas>
+
 </>
   );
 }

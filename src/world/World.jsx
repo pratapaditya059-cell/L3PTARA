@@ -8,7 +8,7 @@ import DPRealm from "./DPRealm";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
-function World() {
+function World({ onRealmClick }) {
   const worldRef = useRef();
 
   useFrame(({ clock }) => {
@@ -25,7 +25,9 @@ function World() {
     
     <group ref={worldRef}>
       <FloatingIsland/>
-      <TreeRealm/>
+      <TreeRealm
+      onRealmClick={onRealmClick}
+      />
       <ArraysRealm/>
       <DPRealm/>
     <GraphRealm/>

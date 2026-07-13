@@ -2,7 +2,7 @@ import { useState } from "react";
 import Tree from "./Tree";
 import { Text, Billboard } from "@react-three/drei";
 
-function TreeRealm() {
+function TreeRealm({ onRealmClick }) {
   const [hovered, setHovered] = useState(false);
   return (
     <group
@@ -16,10 +16,7 @@ function TreeRealm() {
         document.body.style.cursor = "default";
       }}
       onClick={() => {
-    window.open(
-      "https://leetcode.com/problem-list/tree/",
-      "_blank"
-    );
+        onRealmClick("trees");
   }}
     >
       
