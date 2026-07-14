@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Text, Billboard } from "@react-three/drei";
 import Pole from "./Pole";
 
-function GraphRealm() {
+function GraphRealm({onRealmClick}) {
   const [hovered, setHovered] = useState(false);
   return (
     <group
@@ -14,12 +14,9 @@ function GraphRealm() {
         setHovered(false);
         document.body.style.cursor = "default";
       }}
-      onClick={() => {
-        window.open(
-          "https://leetcode.com/problem-list/graph/",
-          "_blank"
-        );
-      }}
+     onClick={() => {
+  onRealmClick("graphs");
+}}
     >
     
     <Pole

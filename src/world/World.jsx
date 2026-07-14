@@ -28,9 +28,15 @@ function World({ onRealmClick }) {
       <TreeRealm
       onRealmClick={onRealmClick}
       />
-      <ArraysRealm/>
-      <DPRealm/>
-    <GraphRealm/>
+      <ArraysRealm
+      onRealmClick={onRealmClick}
+      />
+      <DPRealm
+      onRealmClick={onRealmClick}
+      />
+    <GraphRealm
+    onRealmClick={onRealmClick}
+    />
     </group>
   );
 }

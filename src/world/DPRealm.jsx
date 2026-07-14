@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Text, Billboard } from "@react-three/drei";
 import Mountain from "./Mountain";
 
-function DPRealm() {
+function DPRealm({onRealmClick}) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -16,11 +16,8 @@ function DPRealm() {
         document.body.style.cursor = "default";
       }}
       onClick={() => {
-        window.open(
-          "https://leetcode.com/problem-list/dynamic-programming/",
-          "_blank"
-        );
-      }}
+  onRealmClick("dp");
+}}
     >
       <Mountain
         position={[-0.2, 1.9, -3]}

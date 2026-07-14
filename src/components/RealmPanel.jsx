@@ -1,10 +1,20 @@
 import { trees } from "../data/trees";
 import "./RealmPanel.css";
+import { arrays } from "../data/arrays";
+import { graphs } from "../data/graphs";
+import { dp } from "../data/dp";
+
+const realmData = {
+  trees,
+  arrays,
+  graphs,
+  dp,
+};
 
 function RealmPanel({ realm, onClose }) {
   if (!realm) return null;
 
-  const recommendation = trees[0];
+  const recommendation = realmData[realm][0];
 
   return (
     <div className="realm-panel">
@@ -12,15 +22,32 @@ function RealmPanel({ realm, onClose }) {
         ✕
       </button>
 
-      <h1>🌲 Trees Realm</h1>
+<h1>
+{
+realm==="trees"
+? "🌲 Trees Realm"
+: realm==="arrays"
+? "🏘️ Arrays Realm"
+: realm==="graphs"
+? "⚡ Graphs Realm"
+: "⛰️ DP Realm"
+}
+</h1>
 
-      <p className="realm-subtitle">
-        Master recursion and tree traversal through progressively challenging
-        problems.
-      </p>
+<p className="realm-subtitle">
+{
+realm==="trees"
+? "Master recursion and tree traversal through progressively challenging problems."
+: realm==="arrays"
+? "Strengthen your fundamentals with essential array problems."
+: realm==="graphs"
+? "Learn graph traversal, shortest paths and advanced graph algorithms."
+: "Master optimization techniques through dynamic programming."
+}
+</p>
 
       <div className="recommendation-card">
-        <p className="card-label">🌟 Tree Sage Recommends</p>
+        <p className="card-label">🌟 L3PTARA Sage Recommends</p>
 
         <h2>{recommendation.title}</h2>
 
