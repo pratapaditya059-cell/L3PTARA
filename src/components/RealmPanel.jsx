@@ -4,6 +4,32 @@ import { arrays } from "../data/arrays";
 import { graphs } from "../data/graphs";
 import { dp } from "../data/dp";
 
+const realmInfo = {
+  trees: {
+    title: "🌲 Trees Realm",
+    subtitle:
+      "Master recursion and tree traversal through progressively challenging problems.",
+  },
+
+  arrays: {
+    title: "🏘️ Arrays Realm",
+    subtitle:
+      "Strengthen your fundamentals with essential array problems.",
+  },
+
+  graphs: {
+    title: "⚡ Graphs Realm",
+    subtitle:
+      "Learn graph traversal, shortest paths and advanced graph algorithms.",
+  },
+
+  dp: {
+    title: "⛰️ DP Realm",
+    subtitle:
+      "Master optimization techniques through dynamic programming.",
+  },
+};
+
 const realmData = {
   trees,
   arrays,
@@ -22,28 +48,10 @@ function RealmPanel({ realm, onClose }) {
         ✕
       </button>
 
-<h1>
-{
-realm==="trees"
-? "🌲 Trees Realm"
-: realm==="arrays"
-? "🏘️ Arrays Realm"
-: realm==="graphs"
-? "⚡ Graphs Realm"
-: "⛰️ DP Realm"
-}
-</h1>
+<h1>{realmInfo[realm].title}</h1>
 
 <p className="realm-subtitle">
-{
-realm==="trees"
-? "Master recursion and tree traversal through progressively challenging problems."
-: realm==="arrays"
-? "Strengthen your fundamentals with essential array problems."
-: realm==="graphs"
-? "Learn graph traversal, shortest paths and advanced graph algorithms."
-: "Master optimization techniques through dynamic programming."
-}
+    {realmInfo[realm].subtitle}
 </p>
 
       <div className="recommendation-card">
