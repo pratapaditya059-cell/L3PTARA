@@ -3,6 +3,7 @@ import "./RealmPanel.css";
 import { arrays } from "../data/arrays";
 import { graphs } from "../data/graphs";
 import { dp } from "../data/dp";
+import { useState } from "react";
 
 const realmInfo = {
   trees: {
@@ -40,8 +41,25 @@ const realmData = {
 function RealmPanel({ realm, onClose }) {
   if (!realm) return null;
 
-  const recommendation = realmData[realm][0];
+  const problems = realmData[realm];
 
+  const recommendation = problems[0];
+
+  const [showPath,setShowPath]=useState(false);
+
+  const stages={};
+  problems.forEach((problem)=>{
+
+    if(!stages[problem.stage]){
+
+        stages[problem.stage]=[];
+
+    }
+
+    stages[problem.stage].push(problem);
+
+});
+console.log(stages);
   return (
     <div className="realm-panel">
       <button className="close-btn" onClick={onClose}>
@@ -49,6 +67,9 @@ function RealmPanel({ realm, onClose }) {
       </button>
 
 <h1>{realmInfo[realm].title}</h1>
+<p className="problem-count">
+    {problems.length} Curated Problems
+</p>
 
 <p className="realm-subtitle">
     {realmInfo[realm].subtitle}
@@ -81,6 +102,66 @@ function RealmPanel({ realm, onClose }) {
         >
           Solve on LeetCode →
         </a>
+        <button
+onClick={()=>
+setShowPath(!showPath)
+}
+>
+Explore Learning Path
+</button>
+{
+showPath &&
+(
+<div>
+
+{
+showPath && (
+
+<div>
+
+{
+
+Object.entries(stages).map(
+([stage,problems])=>(
+
+<div key={stage}>
+
+<h1>
+    Stage {stage}
+</h1>
+
+
+{
+
+problems.map((problem)=>(
+
+<p key={problem.id}>
+
+    ○ {problem.title}
+
+</p>
+
+))
+
+}
+
+
+</div>
+
+)
+
+)
+
+}
+
+</div>
+
+)
+}
+
+</div>
+)
+}
       </div>
     </div>
   );
