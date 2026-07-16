@@ -3,7 +3,7 @@ import "./RealmPanel.css";
 import { arrays } from "../data/arrays";
 import { graphs } from "../data/graphs";
 import { dp } from "../data/dp";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const realmInfo = {
   trees: {
@@ -46,6 +46,23 @@ function RealmPanel({ realm, onClose }) {
   const recommendation = problems[0];
 
   const [showPath,setShowPath]=useState(false);
+
+  const [solvedProblems,setSolvedProblems]=useState([]);
+
+  console.log(solvedProblems);
+  
+  useEffect(()=>{
+
+const storedProblems=
+JSON.parse(
+localStorage.getItem(
+`${realm}Solved`
+)
+) || [];
+
+setSolvedProblems(storedProblems);
+
+},[realm]);
 
   const stages={};
   problems.forEach((problem)=>{
@@ -135,11 +152,51 @@ Object.entries(stages).map(
 
 problems.map((problem)=>(
 
-<p key={problem.id}>
+<div key={problem.id}>
 
-    ○ {problem.title}
+    <p>
+        ○ {problem.title}
+    </p>
 
-</p>
+    <button
+onClick={()=>
+window.open(
+    problem.leetcode,
+    "_blank"
+)
+}
+>
+    Solve
+</button>
+
+    <button
+onClick={()=>{
+    setSolvedProblems((prev)=>{
+
+const updated=[
+
+...prev,
+problem.id
+
+];
+
+localStorage.setItem(
+
+`${realm}Solved`,
+
+JSON.stringify(updated)
+
+);
+
+return updated;
+
+});
+}}
+>
+    I've Solved It
+</button>
+
+</div>
 
 ))
 
