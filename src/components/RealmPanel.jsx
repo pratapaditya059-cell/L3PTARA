@@ -41,13 +41,19 @@ const realmData = {
 function RealmPanel({ realm, onClose }) {
   if (!realm) return null;
 
-  const problems = realmData[realm];
-
-  const recommendation = problems[0];
-
   const [showPath,setShowPath]=useState(false);
 
   const [solvedProblems,setSolvedProblems]=useState([]);
+
+  const problems = realmData[realm];
+
+  const unsolvedProblems=problems.filter(
+(problem)=>!solvedProblems.includes(problem.id)
+);
+
+  const recommendation = problems[0];
+
+  console.log(unsolvedProblems);
 
   console.log(solvedProblems);
   
@@ -155,23 +161,65 @@ problems.map((problem)=>(
 <div key={problem.id}>
 
     <p>
-        ○ {problem.title}
+        {
+
+solvedProblems.includes(problem.id)
+
+?
+
+"✓"
+
+:
+
+"○"
+
+}
+
+{problem.title}
     </p>
 
-    <button
+   {
+solvedProblems.includes(problem.id)
+
+?
+
+(
+
+<button>
+
+Solved
+
+</button>
+
+)
+
+:
+
+(
+
+<>
+
+<button
 onClick={()=>
 window.open(
-    problem.leetcode,
-    "_blank"
+problem.leetcode,
+"_blank"
 )
 }
 >
-    Solve
+Solve
 </button>
 
-    <button
+
+<button
 onClick={()=>{
-    setSolvedProblems((prev)=>{
+
+setSolvedProblems((prev)=>{
+
+if(prev.includes(problem.id)){
+return prev;
+}
+
 
 const updated=[
 
@@ -179,6 +227,7 @@ const updated=[
 problem.id
 
 ];
+
 
 localStorage.setItem(
 
@@ -188,13 +237,21 @@ JSON.stringify(updated)
 
 );
 
+
 return updated;
 
 });
+
 }}
 >
-    I've Solved It
+I've Solved It
 </button>
+
+</>
+
+)
+
+}
 
 </div>
 
