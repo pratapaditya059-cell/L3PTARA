@@ -51,11 +51,32 @@ function RealmPanel({ realm, onClose }) {
 (problem)=>!solvedProblems.includes(problem.id)
 );
 
-  const recommendation = problems[0];
+const completedProblems =
+problems.length - unsolvedProblems.length;
+
+const completionPercentage = Math.floor(
+(completedProblems*100)/problems.length
+);
+
+  const recommendation=
+
+unsolvedProblems.length>0
+
+?
+
+unsolvedProblems[0]
+
+:
+
+null;
 
   console.log(unsolvedProblems);
 
   console.log(solvedProblems);
+
+  console.log(completedProblems);
+
+console.log(completionPercentage);
   
   useEffect(()=>{
 
@@ -90,6 +111,18 @@ console.log(stages);
       </button>
 
 <h1>{realmInfo[realm].title}</h1>
+<p>
+{completedProblems}/{problems.length}
+Completed
+</p>
+
+<p>
+Progress : {completionPercentage}%
+</p>
+
+<p>
+{realmInfo[realm].description}
+</p>
 <p className="problem-count">
     {problems.length} Curated Problems
 </p>
@@ -97,6 +130,10 @@ console.log(stages);
 <p className="realm-subtitle">
     {realmInfo[realm].subtitle}
 </p>
+{
+  recommendation
+  ?
+  (
 
       <div className="recommendation-card">
         <p className="card-label">🌟 L3PTARA Sage Recommends</p>
@@ -277,6 +314,32 @@ I've Solved It
 )
 }
       </div>
+      )
+
+:
+
+(
+
+<div>
+
+<h1>
+
+REALM COMPLETED !!
+
+</h1>
+
+
+<p>
+
+Congratulations Sage.
+
+</p>
+
+</div>
+
+)
+
+}
     </div>
   );
 }
