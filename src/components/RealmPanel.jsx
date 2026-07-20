@@ -115,6 +115,18 @@ console.log(stages);
 {completedProblems}/{problems.length}
 Completed
 </p>
+<div className="progress-bar">
+
+<div
+className="progress-fill"
+style={{
+width:`${completionPercentage}%`
+}}
+>
+
+</div>
+
+</div>
 
 <p>
 Progress : {completionPercentage}%
