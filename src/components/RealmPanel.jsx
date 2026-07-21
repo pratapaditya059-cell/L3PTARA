@@ -45,6 +45,8 @@ function RealmPanel({ realm, onClose }) {
 
   const [solvedProblems,setSolvedProblems]=useState([]);
 
+  const [xp,setXp]=useState(0);
+
   const problems = realmData[realm];
 
   const unsolvedProblems=problems.filter(
@@ -79,7 +81,6 @@ null;
 console.log(completionPercentage);
   
   useEffect(()=>{
-
 const storedProblems=
 JSON.parse(
 localStorage.getItem(
@@ -90,6 +91,37 @@ localStorage.getItem(
 setSolvedProblems(storedProblems);
 
 },[realm]);
+
+useEffect(()=>{
+const storedXp=
+JSON.parse(
+localStorage.getItem("xp")
+) || 0;
+
+setXp(storedXp);
+
+},[]);
+
+function getXp(problem){
+
+  if(!problem){
+    return 0;
+  }
+
+if(problem.difficulty==="Easy"){
+    return 25;
+}
+
+if(problem.difficulty==="Medium"){
+    return 50;
+}
+
+return 100;
+
+}
+console.log(
+getXp(recommendation)
+);
 
   const stages={};
   problems.forEach((problem)=>{
@@ -111,6 +143,9 @@ console.log(stages);
       </button>
 
 <h1>{realmInfo[realm].title}</h1>
+<p>
+XP : {xp}
+</p>
 <p>
 {completedProblems}/{problems.length}
 Completed
@@ -286,6 +321,24 @@ JSON.stringify(updated)
 
 );
 
+console.log("Button clicked mf");
+console.log(problem.difficulty);
+console.log(getXp(problem));
+
+const earnedXp=getXp(problem);
+
+setXp((prev)=>{
+
+const updatedXp=prev+earnedXp;
+
+localStorage.setItem(
+"xp",
+JSON.stringify(updatedXp)
+);
+
+return updatedXp;
+
+});
 
 return updated;
 
