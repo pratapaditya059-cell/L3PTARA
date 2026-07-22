@@ -59,6 +59,7 @@ problems.length - unsolvedProblems.length;
 const completionPercentage = Math.floor(
 (completedProblems*100)/problems.length
 );
+const nextTitle=getNextTitle();
 
   const recommendation=
 
@@ -102,6 +103,75 @@ setXp(storedXp);
 
 },[]);
 
+function getNextTitle(){
+
+if(xp<100){
+return{
+title:"PROBLEM EXPLORER",
+remaining:100-xp
+};
+}
+
+
+if(xp<250){
+return{
+title:"REALM EXPLORER",
+remaining:250-xp
+};
+}
+
+
+if(xp<500){
+return{
+title:"TREE SAGE",
+remaining:500-xp
+};
+}
+
+
+if(xp<1000){
+return{
+title:"DSA CONQUEROR",
+remaining:1000-xp
+};
+}
+
+
+return{
+title:"MAX TITLE ACHIEVED",
+remaining:0
+};
+
+}
+
+function getLevel(){
+
+return Math.floor(xp/100)+1;
+
+}
+
+function getTitle(){
+
+if(xp<100){
+return "DSA NOVICE";
+}
+
+if(xp<250){
+return "PROBLEM EXPLORER";
+}
+
+if(xp<500){
+return "REALM EXPLORER";
+}
+
+if(xp<1000){
+return "TREE SAGE";
+}
+
+return "DSA CONQUEROR";
+
+}
+
 function getXp(problem){
 
   if(!problem){
@@ -143,9 +213,27 @@ console.log(stages);
       </button>
 
 <h1>{realmInfo[realm].title}</h1>
+<h3>
+{getTitle()}
+</h3>
+<h4>
+LEVEL : {getLevel()}
+</h4>
+
 <p>
 XP : {xp}
 </p>
+
+<p>
+Next Title :
+{nextTitle.title}
+</p>
+
+<p>
+{nextTitle.remaining}
+XP remaining.
+</p>
+
 <p>
 {completedProblems}/{problems.length}
 Completed
