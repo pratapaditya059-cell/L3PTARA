@@ -45,6 +45,12 @@ function RealmPanel({ realm, onClose }) {
 
   const [solvedProblems,setSolvedProblems]=useState([]);
 
+  const [showPopup,setShowPopup]=
+useState(false);
+
+const [popupMessage,setPopupMessage]=
+useState("");
+
   const [xp,setXp]=useState(0);
 
   const problems = realmData[realm];
@@ -100,6 +106,18 @@ localStorage.getItem("xp")
 ) || 0;
 
 setXp(storedXp);
+
+},[]);
+
+useEffect(()=>{
+
+setPopupMessage(
+
+"QUEST COMPLETED!!"
+
+);
+
+
 
 },[]);
 
@@ -172,6 +190,28 @@ return "DSA CONQUEROR";
 
 }
 
+function getTitleFromXp(value){
+
+if(value<100){
+return "DSA NOVICE";
+}
+
+if(value<250){
+return "PROBLEM EXPLORER";
+}
+
+if(value<500){
+return "REALM EXPLORER";
+}
+
+if(value<1000){
+return "TREE SAGE";
+}
+
+return "DSA CONQUEROR";
+
+}
+
 function getXp(problem){
 
   if(!problem){
@@ -189,6 +229,10 @@ if(problem.difficulty==="Medium"){
 return 100;
 
 }
+
+
+
+
 console.log(
 getXp(recommendation)
 );
@@ -206,6 +250,13 @@ getXp(recommendation)
 
 });
 console.log(stages);
+
+function closePopup(){
+
+setShowPopup(false);
+
+}
+
   return (
     <div className="realm-panel">
       <button className="close-btn" onClick={onClose}>
@@ -386,6 +437,12 @@ Solve
 <button
 onClick={()=>{
 
+const oldXp=xp;
+
+const oldLevel=getLevel();
+
+const oldTitle=getTitle();
+
 setSolvedProblems((prev)=>{
 
 if(prev.includes(problem.id)){
@@ -427,6 +484,42 @@ JSON.stringify(updatedXp)
 return updatedXp;
 
 });
+
+const newXp=oldXp+getXp(problem);
+const newLevel=
+Math.floor(newXp/100)+1;
+const newTitle=
+getTitleFromXp(newXp);
+
+let message="";
+
+message+="QUEST COMPLETED!!\n\n";
+
+message+=`+${getXp(problem)} XP\n\n`;
+
+
+if(oldLevel!==newLevel){
+
+message+="LEVEL UP!!\n";
+
+message+=`LEVEL ${newLevel}\n\n`;
+
+}
+
+
+if(oldTitle!==newTitle){
+
+message+="NEW TITLE!!\n";
+
+message+=`${newTitle}\n\n`;
+
+}
+
+message+=`TOTAL XP : ${newXp}`;
+
+setPopupMessage(message);
+
+setShowPopup(true);
 
 return updated;
 
@@ -487,6 +580,32 @@ REALM COMPLETED !!
 Congratulations Sage.
 
 </p>
+
+</div>
+
+)
+
+}
+
+{
+
+showPopup && (
+
+<div className="popup">
+
+<h2>
+
+{popupMessage}
+
+</h2>
+
+<button
+onClick={closePopup}
+>
+
+Continue Journey
+
+</button>
 
 </div>
 
