@@ -266,6 +266,7 @@ npm run dev
 |------|--------|
 | Arrays | Complete |
 | Trees | Complete |
+| Graphs | Complete |
 | Dynamic Programming | Complete |
 | More Coming Soon | In Progress |
 
@@ -305,18 +306,6 @@ npm run dev
 - [ ] Cloud Sync
 - [ ] Backend Support
 - [ ] Cross Device Progress Tracking
-
----
-
-## 🤝 Contributing
-
-Contributions are always welcome!
-
-Feel free to:
-- Open issues
-- Suggest improvements
-- Submit pull requests
-- Share ideas for new realms and features
 
 ---
 
