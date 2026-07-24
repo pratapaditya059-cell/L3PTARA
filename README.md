@@ -1,125 +1,331 @@
-# 🌍 L3PTARA
+<div align="center">
 
-> **Explore Data Structures & Algorithms through an interactive 3D world.**
+# ⚡ L3PTARA
 
-L3PTARA reimagines DSA learning by replacing traditional lists with an immersive 3D floating island. Each realm represents a core DSA topic, allowing users to explore concepts visually before jumping into relevant coding problems.
+### An RPG-Inspired Journey Through Data Structures & Algorithms
 
-## 🌐 Live Demo
+Explore floating realms, complete quests, gain XP, unlock titles, and master DSA one problem at a time.
 
-🔗 https://l3-ptara.vercel.app/
+[Live Demo](https://l3-ptara.vercel.app/)
+
+</div>
+
+---
+
+## 🌌 What is L3PTARA?
+
+L3PTARA transforms learning DSA into an adventure.
+
+Instead of solving random problems from endless sheets, you'll travel across beautifully designed floating realms, each representing a fundamental topic of Data Structures & Algorithms.
+
+Complete curated learning paths, earn XP, level up, unlock new titles, and progress through your journey as a DSA explorer.
+
+> **"Not another problem sheet. An adventure through DSA."**
 
 ---
 
 ## ✨ Features
 
-- 🌍 Interactive 3D floating island
-- 🌌 Animated night sky with stars and orbiting moon
-- 🌊 Floating world animation
-- 🌲 Four unique DSA realms:
-  - Trees
-  - Arrays
-  - Graphs
-  - Dynamic Programming
-- 🖱️ Hover labels and visual highlights
-- 🚪 Animated introduction screen
-- 📖 In-world interaction guide
-- 🔗 Direct navigation to relevant LeetCode problem collections
-- 🎮 Smooth orbit controls for exploring the world
+### 🏝 Floating Realms
+
+Explore topic-based floating islands including:
+
+- Arrays Realm
+- Trees Realm
+- Dynamic Programming Realm
+- More coming soon...
+
+Each realm contains:
+- Curated learning paths
+- Recommended problems
+- Topic descriptions
+- Progress tracking
 
 ---
 
-## 🛠️ Tech Stack
+### 📖 Learning Paths
+
+Every realm follows a stage-based progression system.
+
+```text
+Trees Realm
+
+↓
+
+Stage 1
+- Maximum Depth of Binary Tree
+- Same Tree
+- Invert Binary Tree
+
+↓
+
+Stage 2
+- Balanced Binary Tree
+- Diameter of Binary Tree
+
+↓
+
+Stage 3
+- Binary Tree Level Order Traversal
+```
+
+Solve problems progressively instead of randomly jumping between difficulties.
+
+---
+
+### 🎯 Today's Quest System
+
+Each realm recommends a problem as your next quest.
+
+```text
+Today's Quest
+
+↓
+
+Partition Equal Subset Sum
+
+Reward:
++50 XP
+```
+
+Making consistent progress more rewarding and enjoyable.
+
+---
+
+### ⚔ RPG Inspired Progression System
+
+Earn XP whenever you solve problems.
+
+```text
+Easy
++25 XP
+
+Medium
++50 XP
+
+Hard
++100 XP
+```
+
+Unlock new levels as you progress.
+
+```text
+LEVEL 1
+↓
+
+LEVEL 5
+↓
+
+LEVEL 10
+↓
+
+LEVEL 20
+```
+
+---
+
+### 👑 Title System
+
+Unlock titles as your journey progresses.
+
+```text
+DSA NOVICE
+
+↓
+
+PROBLEM EXPLORER
+
+↓
+
+REALM EXPLORER
+
+↓
+
+TREE SAGE
+
+↓
+
+DSA CONQUEROR
+```
+
+Titles are based on your overall progress across all realms.
+
+---
+
+### 📈 Progress Tracking
+
+Track:
+
+- Problems solved
+- Total XP
+- Current Level
+- Current Title
+- Next Title Progress
+- Realm Completion Percentage
+
+```text
+LEVEL : 5
+
+REALM EXPLORER
+
+XP : 450
+
+Next Title :
+TREE SAGE
+
+50 XP Remaining
+
+-------------------
+
+8/10 Completed
+
+Progress : 80%
+```
+
+All progress is automatically saved locally.
+
+---
+
+### 🎉 Quest Completion Popup System
+
+Completing a problem rewards you instantly.
+
+```text
+QUEST COMPLETED!!
+
++50 XP
+
+-----------------
+
+LEVEL UP!!
+
+LEVEL 6
+
+-----------------
+
+NEW TITLE UNLOCKED!!
+
+TREE SAGE
+
+-----------------
+
+TOTAL XP : 500
+
+-----------------
+
+Continue Journey →
+```
+
+Making progression feel meaningful and rewarding.
+
+---
+
+## 🛠 Built With
 
 - React
-- Vite
+- JavaScript
 - Three.js
 - React Three Fiber
-- Drei
-- JavaScript
+- HTML/CSS
+- Local Storage API
+- Vite
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Installation
 
-Clone the repository:
+Clone the repository
 
 ```bash
-git clone https://github.com/pratapaditya059-cell/L3PTARA
+git clone https://github.com/your-username/L3PTARA.git
+```
+
+Move into the project
+
+```bash
 cd L3PTARA
 ```
 
-Install dependencies:
+Install dependencies
 
 ```bash
 npm install
 ```
 
-Run the development server:
+Run the development server
 
 ```bash
 npm run dev
 ```
 
-Build for production:
+---
 
-```bash
-npm run build
-```
+## 🎮 Current Realms
 
-Preview the production build:
-
-```bash
-npm run preview
-```
+| Realm | Status |
+|------|--------|
+| Arrays | Complete |
+| Trees | Complete |
+| Dynamic Programming | Complete |
+| More Coming Soon | In Progress |
 
 ---
 
-## 🎯 Current Realms
+## 🔮 Future Plans
 
-🌲 **Trees Realm**
+### Phase 1
 
-Explore tree-based DSA problems.
+- [x] Floating Realms
+- [x] Learning Paths
+- [x] Today's Quest System
+- [x] XP System
+- [x] Levels
+- [x] Titles
+- [x] Progress Tracking
+- [x] Custom Reward Popup System
 
-🏘️ **Arrays Realm**
+### Phase 2
 
-Practice array and traversal problems.
+- [ ] Achievement System
+- [ ] Daily Quests
+- [ ] Weekly Quests
+- [ ] Improved Popup Animations
+- [ ] Additional Realms
 
-⚡ **Graphs Realm**
+### Phase 3
 
-Navigate graph algorithms and traversals.
+- [ ] AI Sage Recommendations
+- [ ] Personalized Learning Paths
+- [ ] Contest Mode
+- [ ] Interview Preparation Mode
 
-🏔️ **Dynamic Programming Realm**
+### Phase 4
 
-Solve state-based optimization problems.
-
----
-
-## 💡 Vision
-
-L3PTARA aims to make learning DSA more engaging by combining interactive 3D environments with problem-solving.
-
-Instead of navigating endless lists, users discover topics naturally by exploring different regions of a virtual world.
-
-Future versions will include:
-
-- Player movement
-- Quest-based progression
-- Curated learning paths
-- Progress tracking
-- Additional DSA realms
-- Animations and environmental effects
-
----
-
-## 📸 Preview
-
-![L3PTARA](./Screenshots/intro.png)
-![](./Screenshots/home.png)
+- [ ] Authentication
+- [ ] Cloud Sync
+- [ ] Backend Support
+- [ ] Cross Device Progress Tracking
 
 ---
 
-## 📄 License
+## 🤝 Contributing
 
-This project is licensed under the MIT License.
+Contributions are always welcome!
 
-Third-party 3D assets are used under their respective licenses.
+Feel free to:
+- Open issues
+- Suggest improvements
+- Submit pull requests
+- Share ideas for new realms and features
+
+---
+
+<div align="center">
+
+### Begin Your DSA Adventure ⚔
+
+> *"Every master was once a beginner. Every conqueror was once an explorer."*
+
+**L3PTARA**
+
+</div>
