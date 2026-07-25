@@ -67,6 +67,8 @@ const completionPercentage = Math.floor(
 );
 const nextTitle=getNextTitle();
 
+const [achievements,setAchievements]=useState([]);
+
   const recommendation=
 
 unsolvedProblems.length>0
@@ -78,14 +80,6 @@ unsolvedProblems[0]
 :
 
 null;
-
-  console.log(unsolvedProblems);
-
-  console.log(solvedProblems);
-
-  console.log(completedProblems);
-
-console.log(completionPercentage);
   
   useEffect(()=>{
 const storedProblems=
@@ -106,6 +100,17 @@ localStorage.getItem("xp")
 ) || 0;
 
 setXp(storedXp);
+
+},[]);
+
+useEffect(()=>{
+
+const storedAchievements=
+JSON.parse(
+localStorage.getItem("achievements")
+) || [];
+
+setAchievements(storedAchievements);
 
 },[]);
 
@@ -230,12 +235,27 @@ return 100;
 
 }
 
+function unlockAchievement(name){
 
+if(achievements.includes(name)){
+    return;
+}
 
+const updated=[
 
-console.log(
-getXp(recommendation)
+...achievements,
+name
+
+];
+
+setAchievements(updated);
+
+localStorage.setItem(
+"achievements",
+JSON.stringify(updated)
 );
+return true;
+}
 
   const stages={};
   problems.forEach((problem)=>{
@@ -249,7 +269,6 @@ getXp(recommendation)
     stages[problem.stage].push(problem);
 
 });
-console.log(stages);
 
 function closePopup(){
 
@@ -449,6 +468,8 @@ if(prev.includes(problem.id)){
 return prev;
 }
 
+const firstBloodUnlocked =
+unlockAchievement("First Blood");
 
 const updated=[
 
@@ -465,10 +486,6 @@ localStorage.setItem(
 JSON.stringify(updated)
 
 );
-
-console.log("Button clicked mf");
-console.log(problem.difficulty);
-console.log(getXp(problem));
 
 const earnedXp=getXp(problem);
 
@@ -512,6 +529,14 @@ if(oldTitle!==newTitle){
 message+="NEW TITLE!!\n";
 
 message+=`${newTitle}\n\n`;
+
+}
+
+if(firstBloodUnlocked){
+
+    message += "🏆 ACHIEVEMENT UNLOCKED!!\n";
+
+    message += "First Blood\n\n";
 
 }
 
