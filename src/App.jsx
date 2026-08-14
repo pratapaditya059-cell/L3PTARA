@@ -6,13 +6,24 @@ import IntroOverlay from "./components/IntroOverlay";
 import WorldHint from "./components/WorldHint";
 import Moon from "./world/Moon"; 
 import RealmPanel from "./components/RealmPanel";
+import Login from "./Login";
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
   const [selectedRealm, setSelectedRealm] = useState(null);
-  console.log(selectedRealm);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+  !!localStorage.getItem("token")
+);
+console.log(selectedRealm);
   
   return (
+    <>
+    {!isLoggedIn ? (
+      <Login
+        onLogin={() => setIsLoggedIn(true)}
+      />
+    ) : (
+      
     <>
     {showIntro && (
         <IntroOverlay
@@ -55,7 +66,8 @@ function App() {
 </Canvas>
 
 </>
-  );
-}
+  )}
+  </>
+)};
 
 export default App;
