@@ -61,73 +61,117 @@ const profile = await getProfile();
 };
 
     return (
+    <div className="auth-page">
 
-    <div>
+        <div className="auth-stars"></div>
 
-        <h2>
-            {isRegistering ? "Create Account" : "Login"}
-        </h2>
+        <div className="auth-logo">
+            <span>L</span>
+            <span className="logo-three">3</span>
+            <span>PTARA</span>
+        </div>
 
-        {isRegistering && (
-
-            <input
-                type="text"
-                placeholder="Username"
-                value={username}
-                onChange={(e) => {
-                    setUsername(e.target.value);
-                }}
-            />
-
-        )}
-
-        <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => {
-                setEmail(e.target.value);
-            }}
-        />
-
-        <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => {
-                setPassword(e.target.value);
-            }}
-        />
-
-        <button
-            onClick={
-                isRegistering
-                    ? handleRegister
-                    : handleLogin
-            }
-        >
-            {isRegistering ? "Register" : "Login"}
-        </button>
-
-        <p>
-
-            {isRegistering
-                ? "Already have an account?"
-                : "Don't have an account?"
-            }
-
-            <button
-                onClick={() => {
-                    setIsRegistering(!isRegistering);
-                }}
-            >
-                {isRegistering ? "Login" : "Register"}
-            </button>
-
+        <p className="auth-subtitle">
+            ENTER THE REALM
         </p>
 
-    </div>
+        <div className="auth-card">
 
+            <h2>
+                {isRegistering
+                    ? "Create Your Account"
+                    : "Welcome Back"}
+            </h2>
+
+            <p className="auth-description">
+                {isRegistering
+                    ? "Begin your journey through the realms."
+                    : "Continue your journey through L3PTARA."}
+            </p>
+
+            {isRegistering && (
+                <div className="input-group">
+
+                    <label>Username</label>
+
+                    <input
+                        type="text"
+                        placeholder="Choose your explorer name"
+                        value={username}
+                        onChange={(e) => {
+                            setUsername(e.target.value);
+                        }}
+                    />
+
+                </div>
+            )}
+
+            <div className="input-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                    }}
+                />
+
+            </div>
+
+            <div className="input-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={(e) => {
+                        setPassword(e.target.value);
+                    }}
+                />
+
+            </div>
+
+            <button
+                className="auth-button"
+                onClick={
+                    isRegistering
+                        ? handleRegister
+                        : handleLogin
+                }
+            >
+                {isRegistering
+                    ? "BEGIN JOURNEY"
+                    : "ENTER REALM"}
+            </button>
+
+            <div className="auth-switch">
+
+                <span>
+                    {isRegistering
+                        ? "Already an explorer?"
+                        : "New to L3PTARA?"}
+                </span>
+
+                <button
+                    onClick={() => {
+                        setIsRegistering(!isRegistering);
+                    }}
+                >
+                    {isRegistering
+                        ? "Login"
+                        : "Create Account"}
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 );
 
 }

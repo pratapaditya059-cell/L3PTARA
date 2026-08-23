@@ -117,3 +117,306 @@ body,
     opacity: 0;
   }
 }
+
+/* ============================= */
+/* L3PTARA AUTH SCREEN */
+/* ============================= */
+
+.auth-page {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(70, 80, 180, 0.18),
+            transparent 45%
+        ),
+        #050510;
+
+    color: white;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Star-like background */
+
+.auth-stars {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
+    opacity: 0.18;
+
+    animation: starMove 20s linear infinite;
+}
+
+
+@keyframes starMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(80px);
+    }
+
+}
+
+
+/* Logo */
+
+.auth-logo {
+
+    position: relative;
+
+    font-size: 4rem;
+    font-weight: 800;
+
+    letter-spacing: 0.15em;
+
+    margin-bottom: 5px;
+
+    text-shadow:
+        0 0 15px rgba(140, 150, 255, 0.8),
+        0 0 40px rgba(80, 90, 255, 0.4);
+
+}
+
+
+.logo-three {
+
+    font-size: 3.2rem;
+
+    margin: 0 2px;
+
+}
+
+
+.auth-subtitle {
+
+    position: relative;
+
+    margin-top: 0;
+    margin-bottom: 35px;
+
+    letter-spacing: 0.45em;
+
+    font-size: 0.75rem;
+
+    opacity: 0.55;
+
+}
+
+
+/* Glass card */
+
+.auth-card {
+
+    position: relative;
+
+    width: 380px;
+
+    padding: 40px;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 20px 80px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+}
+
+
+.auth-card h2 {
+
+    margin: 0;
+
+    font-size: 1.8rem;
+
+}
+
+
+.auth-description {
+
+    margin-top: 8px;
+    margin-bottom: 30px;
+
+    font-size: 0.9rem;
+
+    opacity: 0.55;
+
+}
+
+
+/* Inputs */
+
+.input-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.input-group label {
+
+    font-size: 0.75rem;
+
+    letter-spacing: 0.08em;
+
+    opacity: 0.65;
+
+}
+
+
+.input-group input {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    outline: none;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    color: white;
+
+    font-size: 0.95rem;
+
+    transition: 0.25s;
+
+}
+
+
+.input-group input::placeholder {
+
+    color: rgba(255, 255, 255, 0.3);
+
+}
+
+
+.input-group input:focus {
+
+    border-color: rgba(150, 160, 255, 0.7);
+
+    box-shadow:
+        0 0 20px rgba(100, 110, 255, 0.15);
+
+}
+
+
+/* Main button */
+
+.auth-button {
+
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: rgba(120, 130, 255, 0.85);
+
+    color: white;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+}
+
+
+.auth-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 30px rgba(100, 110, 255, 0.35);
+
+}
+
+
+/* Login/Register switch */
+
+.auth-switch {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-top: 25px;
+
+    font-size: 0.8rem;
+
+    opacity: 0.6;
+
+}
+
+
+.auth-switch button {
+
+    border: none;
+
+    background: none;
+
+    color: #aeb5ff;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+}
+
+
+.auth-switch button:hover {
+
+    text-decoration: underline;
+
+}
