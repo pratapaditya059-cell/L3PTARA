@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { loginUser, getProfile } from "./api";
+import { loginUser, registerUser, getProfile } from "./api";
 
 function Login({ onLogin }) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isRegistering, setIsRegistering] = useState(false);
+    const [username, setUsername] = useState("");
 
     const handleLogin = async () => {
 
@@ -30,37 +32,104 @@ const profile = await getProfile();
 
     };
 
+    const handleRegister = async () => {
+
+    try {
+
+        const data = await registerUser(
+            username,
+            email,
+            password
+        );
+
+        console.log(data);
+
+        alert("Registration successful! Please login.");
+
+        setIsRegistering(false);
+
+        setUsername("");
+        setEmail("");
+        setPassword("");
+
+    } catch (error) {
+
+        alert(error.message);
+
+    }
+
+};
+
     return (
 
-        <div>
+    <div>
 
-            <h2>Login</h2>
+        <h2>
+            {isRegistering ? "Create Account" : "Login"}
+        </h2>
+
+        {isRegistering && (
 
             <input
-                type="email"
-                placeholder="Email"
-                value={email}
+                type="text"
+                placeholder="Username"
+                value={username}
                 onChange={(e) => {
-                    setEmail(e.target.value);
+                    setUsername(e.target.value);
                 }}
             />
 
-            <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => {
-                    setPassword(e.target.value);
-                }}
-            />
+        )}
 
-            <button onClick={handleLogin}>
-                Login
+        <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => {
+                setEmail(e.target.value);
+            }}
+        />
+
+        <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => {
+                setPassword(e.target.value);
+            }}
+        />
+
+        <button
+            onClick={
+                isRegistering
+                    ? handleRegister
+                    : handleLogin
+            }
+        >
+            {isRegistering ? "Register" : "Login"}
+        </button>
+
+        <p>
+
+            {isRegistering
+                ? "Already have an account?"
+                : "Don't have an account?"
+            }
+
+            <button
+                onClick={() => {
+                    setIsRegistering(!isRegistering);
+                }}
+            >
+                {isRegistering ? "Login" : "Register"}
             </button>
 
-        </div>
+        </p>
 
-    );
+    </div>
+
+);
+
 }
 
 export default Login;

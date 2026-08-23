@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000";
+const API_URL = "https://l3ptara-1.onrender.com";
 
 export const registerUser = async (username, email, password) => {
 
